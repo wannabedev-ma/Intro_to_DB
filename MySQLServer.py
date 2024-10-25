@@ -8,15 +8,18 @@ try:
         password='rootadmin',
         database='alx_book_store'
     )
-except e:
-    print(e)
+except mysql.connector.Error:
+    print(mysql.connector.Error)
 
 cursor = mydb.cursor()
 
 try:
     cursor.execute("CREATE DATABASE IF NOT EXISTS alx_book_store;")
     print("Database 'alx_book_store' created successfully!")
-except e:
-    print(e)
-cursor.close()
-mydb.disconnect()
+except mysql.connector.Error:
+    print(mysql.connector.Errore)
+finally:
+    if cursor:
+        cursor.close()
+    if mydb.is_connected():
+        mydb.close()
