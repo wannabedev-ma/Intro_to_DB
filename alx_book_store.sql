@@ -1,3 +1,4 @@
+DROP DATABASE alx_book_store;
 CREATE DATABASE IF NOT EXISTS alx_book_store;
 
 USE alx_book_store;
@@ -26,7 +27,7 @@ CREATE TABLE IF NOT EXISTS Orders (
 	order_id INT PRIMARY KEY AUTO_INCREMENT,
     customer_id INT,
     order_date DATE NOT NULL,
-    FOREIGN KEY (customer_id) REFERENCES Customers (customer_id)
+    FOREIGN KEY (customer_id) REFERENCES Customers(customer_id)
 		ON DELETE CASCADE
         ON UPDATE CASCADE);
         
